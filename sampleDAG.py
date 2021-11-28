@@ -41,10 +41,10 @@ t2 = BashOperator(
     bash_command='date',
     dag=dag)
     
-bigquery_to_gcs = BigQueryToCloudStorageOperator(
+bigquery_to_gcs = BigQueryToGCSOperator(
     task_id="bash3",
     source_project_dataset_table=f"bigquery-public-data.covid19_open_data.covid19_open_data",
-    destination_cloud_storage_uris=[f"gs://airflow_output/export-bigquery_covid_data.csv"])
+    destination_cloud_storage_uris=[f"gs://airflow_output/export-bigquery_covid_data.csv"],)
 
 #************** Step5: Set Task dependencies******************************
 #Here, we are specifying a list of tasks to run after t1 is successfully completed
