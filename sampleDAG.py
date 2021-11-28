@@ -41,8 +41,8 @@ t2 = BashOperator(
     bash_command='date',
     dag=dag)
     
-bigquery_to_gcs = BigQueryToGCSOperator(
-    task_id="bigquery_to_gcs",
+bigquery_to_gcs = BigQueryToCloudStorageOperator(
+    task_id="bash3",
     source_project_dataset_table=f"bigquery-public-data.covid19_open_data.covid19_open_data",
     destination_cloud_storage_uris=[f"gs://airflow_output/export-bigquery_covid_data.csv"])
 
